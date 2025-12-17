@@ -82,7 +82,7 @@ https://colab.research.google.com/github/dungdinhhaha/ClassifyCell/blob/master/S
 ---
 
 ### Bước 3: Thêm file SVS
-- Upload file `.svs` vào Google Drive ở thư mục PhatHienTeBao của phần mềm tạo sẵn
+- Upload file `.svs` vào Google Drive ở thư mục  ở Mydrive/PhatHienTeBao vừa clone về
 - Đổi tên file thành:
 ```
 
@@ -304,6 +304,7 @@ Phân loại tế bào cổ tử cung là bài toán khó do:
 
 
 ---
+
 
 
 

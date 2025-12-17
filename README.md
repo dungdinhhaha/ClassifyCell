@@ -8,16 +8,27 @@ Toàn bộ mã nguồn, model và dữ liệu mẫu có thể tải nhanh về C
 
 2. Cấu trúc thư mục
 PhatHienTeBao/
-├── SIMPLE_CELL_DETECTION.ipynb        # Notebook phát hiện & phân loại tế bào
-├── TRAIN_CLASSIFIER_FROM_FOLDERS.ipynb # Notebook huấn luyện model từ folder ảnh
-├── best_cytology_model.keras          # File model đã huấn luyện
-├── sample.svs                         # File SVS mẫu
-├── images/                            # Thư mục chứa ảnh đã cắt theo class
-│   ├── 1/
-│   ├── 2/
-│   ├── ...
-│   └── 11/                            # Mỗi thư mục là 1 class tế bào
-└── README.md                          # File hướng dẫn này
+
+SIMPLE_CELL_DETECTION.ipynb: Notebook dùng để phát hiện và phân loại tế bào
+
+TRAIN_CLASSIFIER_FROM_FOLDERS.ipynb: Notebook dùng để huấn luyện model từ các thư mục ảnh
+
+best_cytology_model.keras: File model đã được huấn luyện sẵn
+
+sample.svs: File SVS mẫu để thử nghiệm
+
+images/: Thư mục chứa các ảnh tế bào đã được cắt và phân loại
+
+1/: Class 1
+
+2/: Class 2
+
+…
+
+11/: Class 11 (mỗi thư mục tương ứng một loại tế bào)
+
+README.md: File hướng dẫn sử dụng dự án
+
 
 3. Hướng dẫn sử dụng nhanh trên Google Colab
 Bước 1: Tải dự án về Colab bằng git clone
@@ -62,4 +73,5 @@ OpenCV
 NumPy, Matplotlib
 
 (Google Colab đã có sẵn hầu hết các thư viện cần thiết)
+
 

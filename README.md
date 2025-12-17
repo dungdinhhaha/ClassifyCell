@@ -216,4 +216,93 @@ v
 
 ---
 
+## 8. Cách huấn luyện mô hình và Kết quả mong đợi
+
+Phần huấn luyện trong dự án này sử dụng **transfer learning** để tận dụng sức mạnh của các mô hình học sâu đã được huấn luyện sẵn, giúp tiết kiệm thời gian và tăng độ chính xác cho bài toán phân loại tế bào cổ tử cung.
+
+---
+
+### 8.1 Cách huấn luyện mô hình
+
+#### Sử dụng mô hình có sẵn (DenseNet121)
+Dự án sử dụng **DenseNet121**, một mô hình học sâu đã được huấn luyện trước trên tập dữ liệu ImageNet.
+
+Mô hình này giúp:
+- Trích xuất đặc trưng hình ảnh tốt
+- Phù hợp với các bài toán ảnh y sinh
+- Giảm nhu cầu cần lượng dữ liệu huấn luyện lớn
+
+---
+
+#### Huấn luyện theo 2 giai đoạn
+
+Để mô hình học hiệu quả và ổn định, quá trình huấn luyện được chia thành **2 giai đoạn**:
+
+**Giai đoạn 1 – Huấn luyện phần phân loại:**
+- Giữ nguyên (đóng băng) toàn bộ DenseNet121
+- Chỉ huấn luyện phần phân loại phía sau
+
+Mục tiêu:
+- Giúp mô hình học cách phân biệt các loại tế bào
+- Tránh làm hỏng các đặc trưng đã học sẵn
+
+---
+
+**Giai đoạn 2 – Tinh chỉnh mô hình (fine-tuning):**
+- Chỉ thực hiện khi kết quả giai đoạn 1 tương đối tốt
+- Mở khóa một số layer cuối của DenseNet121
+- Huấn luyện với learning rate rất nhỏ
+
+Mục tiêu:
+- Giúp mô hình thích nghi tốt hơn với ảnh tế bào cổ tử cung
+- Cải thiện độ chính xác mà vẫn giữ được độ ổn định
+
+---
+
+#### Tăng cường dữ liệu nhẹ
+Do hình dạng tế bào rất nhạy cảm, dự án **chỉ sử dụng tăng cường dữ liệu ở mức nhẹ**, bao gồm:
+- Lật ảnh theo chiều ngang
+- Xoay ảnh một góc nhỏ
+
+Việc này giúp:
+- Mô hình học tổng quát tốt hơn
+- Không làm biến dạng cấu trúc tế bào
+
+---
+
+#### Cân bằng dữ liệu giữa các lớp
+Một số loại tế bào xuất hiện ít hơn các loại khác.  
+Để tránh mô hình thiên lệch, dự án sử dụng **trọng số lớp (class weight)** trong quá trình huấn luyện.
+
+Điều này giúp:
+- Mô hình chú ý hơn đến các lớp ít dữ liệu
+- Kết quả phân loại cân bằng hơn
+
+---
+
+#### Các cơ chế hỗ trợ huấn luyện
+Quá trình huấn luyện có sử dụng các cơ chế sau:
+- Lưu lại mô hình tốt nhất
+- Dừng sớm khi mô hình không còn cải thiện
+- Tự động giảm learning rate khi kết quả bị chững lại
+
+Nhờ đó:
+- Tránh overfitting
+- Tiết kiệm thời gian huấn luyện
+- Giúp mô hình hội tụ tốt hơn
+
+---
+
+### 8.2 Kết quả mong đợi
+
+#### Độ khó của bài toán
+Phân loại tế bào cổ tử cung là bài toán khó do:
+- Các loại tế bào rất giống nhau
+- Ảnh có chất lượng không đồng đều
+- Dữ liệu giữa các lớp không cân bằng
+
+
+
+---
+
 

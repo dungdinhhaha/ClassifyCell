@@ -67,7 +67,7 @@ PhatHienTeBao/
 Truy cập trực tiếp:
 ```
 
-[https://colab.research.google.com/github/dungdinhhaha/ClassifyCell/blob/master/SIMPLE_CELL_DETECTION.ipynb](https://colab.research.google.com/github/dungdinhhaha/ClassifyCell/blob/master/SIMPLE_CELL_DETECTION.ipynb)
+https://colab.research.google.com/github/dungdinhhaha/ClassifyCell/blob/master/SIMPLE_CELL_DETECTION.ipynb
 
 ```
 
@@ -304,5 +304,6 @@ Phân loại tế bào cổ tử cung là bài toán khó do:
 
 
 ---
+
 
 
